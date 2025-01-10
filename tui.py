@@ -31,3 +31,15 @@ def main_menu():
         except Exception as e:
             error("please enter a number.")
             pass
+
+
+
+def data_file_path():
+    default_path = "/data/retails_sales_data.csv"
+    user_input = input("Please enter the file path for the data file (e.g., data/titanic.csv): ")
+
+    if not user_input.endswith('.csv'):
+        print("The file path must end with '.csv'. Returning the default path.")
+        return default_path
+
+    return user_input
