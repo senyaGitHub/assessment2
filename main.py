@@ -25,6 +25,7 @@ def run():
             if process_option == 1:
                 tui.calculate_total_transactions(records)
             if process_option == 2:
+                tui.get_unique_store_locations_and_categories(records)
 
 
 run()

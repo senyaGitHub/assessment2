@@ -93,3 +93,23 @@ def calculate_total_transactions(csv_data):
     total_transactions = len(csv_data) - 1
     print("Total number of transactions: ",total_transactions)
     return total_transactions
+
+
+def get_unique_store_locations_and_categories(csv_data):
+
+    # Extract the index of StoreLocation and ProductCategory from the headers
+    headers = csv_data[0]
+    store_location_index = headers.index("StoreLocation")
+    product_category_index = headers.index("ProductCategory")
+
+    # Use sets to store unique values
+    unique_store_locations = set()
+    unique_product_categories = set()
+
+    # Iterate through the rows (skip the header row)
+    for row in csv_data[1:]:
+        unique_store_locations.add(row[store_location_index])
+        unique_product_categories.add(row[product_category_index])
+
+    print("Unique Store Locations:", unique_store_locations)
+    print("Unique Product Categories:", unique_product_categories)
