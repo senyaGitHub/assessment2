@@ -1,7 +1,7 @@
 #import proccess
 import tui
-import os
 import process
+import os
 
 source = []
 
@@ -14,9 +14,12 @@ def run():
     while True:
          #draw menu from tui module
         option = tui.main_menu()
-        os.system('cls' if os.name == 'nt' else 'clear')
         if option == 1:
             # load data using path to a file and save to records
+            tui.progress("Data loading", 0)
             records = (process.load_data(tui.data_file_path()))
+            tui.progress("Data loading", 100)
+        elif option == 2:
+            process_option = tui.process_menu()
 
 run()
