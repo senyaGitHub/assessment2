@@ -6,6 +6,7 @@ import os
 source = []
 
 def run():
+    #data is stored in array
     global records
 
     # clearing a terminal
@@ -21,5 +22,9 @@ def run():
             tui.progress("Data loading", 100)
         elif option == 2:
             process_option = tui.process_menu()
+            if process_option == 1:
+                tui.calculate_total_transactions(records)
+            if process_option == 2:
+
 
 run()

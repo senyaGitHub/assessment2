@@ -16,7 +16,7 @@ def welcome(width=100):
 
 
 def main_menu():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    #os.system('cls' if os.name == 'nt' else 'clear')
     while True:
         try:
             option = int(input('''
@@ -40,7 +40,7 @@ def main_menu():
 
 def data_file_path():
     default_path = "retail_sales_data.csv"
-    user_input = input("Please enter the file path for the data file (e.g., data/titanic.csv): ")
+    user_input = input("Please enter the file path for the data file (e.g., retail_sales_data.csv): ")
 
     if not user_input.endswith('.csv'):
         error("The file path must end with '.csv'. Returning the default path.")
@@ -87,3 +87,9 @@ def process_menu():
         except Exception as e:
             error("please enter a number.")
             pass
+
+
+def calculate_total_transactions(csv_data):
+    total_transactions = len(csv_data) - 1
+    print("Total number of transactions: ",total_transactions)
+    return total_transactions
