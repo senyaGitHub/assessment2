@@ -35,7 +35,7 @@ def main_menu():
 
 
 def data_file_path():
-    default_path = "/data/retails_sales_data.csv"
+    default_path = "retail_sales_data.csv"
     user_input = input("Please enter the file path for the data file (e.g., data/titanic.csv): ")
 
     if not user_input.endswith('.csv'):

@@ -1,7 +1,7 @@
 #import proccess
 import tui
 import os
-
+import process
 
 source = []
 
@@ -16,5 +16,7 @@ def run():
         option = tui.main_menu()
         os.system('cls' if os.name == 'nt' else 'clear')
         if option == 1:
-            print(tui.data_file_path())
+            # load data using path to a file and save to records
+            records = (process.load_data(tui.data_file_path()))
+
 run()
