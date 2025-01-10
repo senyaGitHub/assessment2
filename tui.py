@@ -21,7 +21,7 @@ def main_menu():
         try:
             option = int(input('''
     Main Menu:
-      [1] Load Data
+      [1] Load Different Data
       [2] Process Data
       [3] Visualise Data
       [4] Export data
@@ -40,7 +40,7 @@ def main_menu():
 
 def data_file_path():
     default_path = "retail_sales_data.csv"
-    user_input = input("Please enter the file path for the data file (e.g., retail_sales_data.csv): ")
+    user_input = input("Please enter the file path for the data file (default: retail_sales_data.csv): ")
 
     if not user_input.endswith('.csv'):
         error("The file path must end with '.csv'. Returning the default path.")
@@ -91,25 +91,32 @@ def process_menu():
 
 def calculate_total_transactions(csv_data):
     total_transactions = len(csv_data) - 1
-    print("Total number of transactions: ",total_transactions)
+    print("Total number of transactions: ", total_transactions)
     return total_transactions
 
 
 def get_unique_store_locations_and_categories(csv_data):
 
-    # Extract the index of StoreLocation and ProductCategory from the headers
     headers = csv_data[0]
     store_location_index = headers.index("StoreLocation")
     product_category_index = headers.index("ProductCategory")
 
-    # Use sets to store unique values
     unique_store_locations = set()
     unique_product_categories = set()
 
-    # Iterate through the rows (skip the header row)
     for row in csv_data[1:]:
         unique_store_locations.add(row[store_location_index])
         unique_product_categories.add(row[product_category_index])
 
     print("Unique Store Locations:", unique_store_locations)
     print("Unique Product Categories:", unique_product_categories)
+
+
+def get_transaction_details_by_id(csv_data, transaction_id):
+
+    headers = csv_data[0]
+
+    for row in csv_data[1:]:
+        if row[0] == str(transaction_id):
+            return(dict(zip(headers, row)))
+    #return instead of print to make it easier to implement and error catch
