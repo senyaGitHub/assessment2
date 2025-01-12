@@ -1,9 +1,7 @@
-#import proccess
 import tui
 import process
 import os
-
-source = []
+import gui
 
 def run():
     #data is stored in array
@@ -83,6 +81,10 @@ def run():
                                 print(f"  {method}: {percentage:.2f}%")
                             else:
                                 print(f"{key}: {value:}")
+        elif option == 3:
+            gui.visualise_data(records)
+
+
 
 
 

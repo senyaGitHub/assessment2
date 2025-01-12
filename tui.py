@@ -23,7 +23,7 @@ def main_menu():
     Main Menu:
       [1] Load Different Data
       [2] Process Data
-      [3] Visualise Data
+      [3] Visualise Data (Dashboard)
       [4] Export data
       [5] Exit
     Select option:
