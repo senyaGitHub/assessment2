@@ -60,6 +60,9 @@ def run():
                 else:
                     print(f"No transactions found for product category: {product_category}")
 
+            if process_option == 6:
+                pass
+
 
 
 
