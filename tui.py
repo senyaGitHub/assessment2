@@ -43,7 +43,7 @@ def data_file_path():
     user_input = input("Please enter the file path for the data file (default: retail_sales_data.csv): ")
 
     if not user_input.endswith('.csv'):
-        error("The file path must end with '.csv'. Returning the default path.")
+        error("The file path must end with '.csv'. Using the default path.")
         return default_path
 
     return user_input
@@ -120,3 +120,15 @@ def get_transaction_details_by_id(csv_data, transaction_id):
         if row[0] == str(transaction_id):
             return(dict(zip(headers, row)))
     #return instead of print to make it easier to implement and error catch
+
+
+def get_transactions_by_store(csv_data, store_location):
+    headers = csv_data[0]
+
+    transactions = [
+        dict(zip(headers, row))
+        for row in csv_data[1:]
+        if row[2].lower() == store_location.lower()
+    ]
+
+    return transactions

@@ -38,6 +38,17 @@ def run():
                 else:
                     print(tui.get_transaction_details_by_id(records, transaction_id))
             if process_option == 4:
+                location = input("Please input Location: ")
+                transactions = tui.get_transactions_by_store(records, location)
+                if location == '':
+                    tui.error("Empty string detected, please enter location. ")
+                if transactions:
+                    print(f"Transactions for {location}:")
+                    for transaction in transactions:
+                        print(transaction)
+                else:
+                    print(f"No transactions found for store location: {location}")
+
 
 
 
