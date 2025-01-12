@@ -68,6 +68,22 @@ def run():
                 for location, revenue in revenue_by_location.items():
                     print(f"{location}: £{revenue:.2f}")
 
+            if process_option == 7:
+                location = input("Please input Location: ")
+                if location == '':
+                    tui.error("Empty string detected, please enter location. ")
+                else:
+                    store_summary = process.summarize_sales_for_store(records, location)
+
+                    print(f"Sales Summary for {location}:")
+                    for key, value in store_summary.items():
+                        if isinstance(value, dict):
+                            print(f"{key}:")
+                            for method, percentage in value.items():
+                                print(f"  {method}: {percentage:.2f}%")
+                            else:
+                                print(f"{key}: {value:}")
+
 
 
 

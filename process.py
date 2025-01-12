@@ -84,3 +84,49 @@ def calculate_revenue_by_store_location(csv_data):
             revenue_by_location[store_location] = total_price
 
     return revenue_by_location
+
+
+def summarize_sales_for_store(csv_data, store_location):
+
+    headers = csv_data[0]
+
+    store_index = headers.index("StoreLocation")
+    total_price_index = headers.index("TotalPrice")
+    quantity_index = headers.index("Quantity")
+    satisfaction_index = headers.index("CustomerSatisfaction")
+    payment_method_index = headers.index("PaymentMethod")
+
+    total_transactions = 0
+    total_revenue = 0.0
+    total_quantity = 0
+    total_satisfaction = 0
+    payment_methods_count = {}
+
+    for row in csv_data[1:]:
+        if row[store_index] == store_location:
+            total_transactions += 1
+            total_revenue += float(row[total_price_index])
+            total_quantity += int(row[quantity_index])
+            total_satisfaction += int(row[satisfaction_index])
+
+            payment_method = row[payment_method_index]
+            if payment_method in payment_methods_count:
+                payment_methods_count[payment_method] += 1
+            else:
+                payment_methods_count[payment_method] = 1
+
+    average_transaction_value = total_revenue / total_transactions if total_transactions > 0 else 0
+    average_satisfaction = total_satisfaction / total_transactions if total_transactions > 0 else 0
+    payment_method_percentages = {
+        method: (count / total_transactions) * 100 for method, count in payment_methods_count.items()
+    }
+
+    return {
+        "StoreLocation": store_location,
+        "TotalTransactions": total_transactions,
+        "TotalRevenue": total_revenue,
+        "AverageTransactionValue": average_transaction_value,
+        "TotalQuantitySold": total_quantity,
+        "AverageCustomerSatisfaction": average_satisfaction,
+        "PaymentMethodPercentages": payment_method_percentages,
+    }
