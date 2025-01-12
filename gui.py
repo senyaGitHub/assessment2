@@ -47,7 +47,6 @@ def visualise_data(records):
     # Histogram Tab
     hist_frame = ttk.Frame(notebook)
     notebook.add(hist_frame, text="Transaction Values Histogram")
-
     fig2 = Figure(figsize=(5, 5))
     ax2 = fig2.add_subplot(111)
     ax2.hist(transaction_values, bins=10, color='blue', edgecolor='black')
@@ -59,26 +58,5 @@ def visualise_data(records):
     canvas2.draw()
     canvas2.get_tk_widget().pack(fill='both', expand=True)
 
-    # Interactive Dashboard Tab
-    # dashboard_frame = ttk.Frame(notebook)
-    # notebook.add(dashboard_frame, text="Interactive Dashboard")
 
-    # # Display summary statistics in dashboard
-    # summary_label = tk.Label(dashboard_frame, text="Summary of Key Insights", font=("Arial", 14))
-    # summary_label.pack(pady=10)
-
-    # total_revenue = sum(revenue_by_location.values())
-    # total_transactions = len(records) - 1
-    # average_transaction_value = total_revenue / total_transactions if total_transactions > 0 else 0
-
-    # summary_text = f"""
-    # Total Revenue: \u00a3{total_revenue:.2f}
-    # Total Transactions: {total_transactions}
-    # Average Transaction Value: \u00a3{average_transaction_value:.2f}
-    # """
-
-    # summary_label = tk.Label(dashboard_frame, text=summary_text, font=("Arial", 12), justify="left")
-    # summary_label.pack(pady=10)
-
-    # Run the Tkinter loop
     root.mainloop()
