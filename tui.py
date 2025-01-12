@@ -24,7 +24,8 @@ def main_menu():
       [1] Load Different Data
       [2] Process Data
       [3] Visualise Data (Dashboard)
-      [4] Export data
+      [4] Export sales summary
+
       [5] Exit
     Select option:
     '''))

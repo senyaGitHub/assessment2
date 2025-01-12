@@ -1,14 +1,14 @@
 {
-    "StoreLocation": "Rural",
-    "TotalTransactions": 175,
-    "TotalRevenue": 239220.19000000015,
-    "AverageTransactionValue": 1366.972514285715,
-    "TotalQuantitySold": 933,
-    "AverageCustomerSatisfaction": 3.0114285714285716,
+    "StoreLocation": "Suburban",
+    "TotalTransactions": 173,
+    "TotalRevenue": 235882.50999999995,
+    "AverageTransactionValue": 1363.4827167630056,
+    "TotalQuantitySold": 905,
+    "AverageCustomerSatisfaction": 3.086705202312139,
     "PaymentMethodPercentages": {
-        "Credit Card": 26.857142857142858,
-        "Cash": 23.42857142857143,
-        "Mobile Payment": 23.42857142857143,
-        "Debit Card": 26.285714285714285
+        "Debit Card": 22.54335260115607,
+        "Cash": 27.74566473988439,
+        "Credit Card": 24.277456647398843,
+        "Mobile Payment": 25.43352601156069
     }
 }
