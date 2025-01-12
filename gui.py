@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 
 
 def visualise_data(records):
-    # Function to visualize data using tkinter and matplotlib
     headers = records[0]
     store_index = headers.index("StoreLocation")
     total_price_index = headers.index("TotalPrice")
 
     revenue_by_location = {}
     transaction_values = []
+
     #revenues
     for row in records[1:]:
         store_location = row[store_index]

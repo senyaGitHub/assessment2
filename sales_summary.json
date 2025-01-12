@@ -1,14 +1,9 @@
 {
-    "StoreLocation": "Suburban",
-    "TotalTransactions": 173,
-    "TotalRevenue": 235882.50999999995,
-    "AverageTransactionValue": 1363.4827167630056,
-    "TotalQuantitySold": 905,
-    "AverageCustomerSatisfaction": 3.086705202312139,
-    "PaymentMethodPercentages": {
-        "Debit Card": 22.54335260115607,
-        "Cash": 27.74566473988439,
-        "Credit Card": 24.277456647398843,
-        "Mobile Payment": 25.43352601156069
-    }
+    "StoreLocation": "5",
+    "TotalTransactions": 0,
+    "TotalRevenue": 0.0,
+    "AverageTransactionValue": 0,
+    "TotalQuantitySold": 0,
+    "AverageCustomerSatisfaction": 0,
+    "PaymentMethodPercentages": {}
 }
