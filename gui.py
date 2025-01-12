@@ -5,8 +5,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 
 
-
-
 def visualise_data(records):
     headers = records[0]
     store_index = headers.index("StoreLocation")
@@ -45,18 +43,36 @@ def visualise_data(records):
     canvas1.get_tk_widget().pack(fill='both', expand=True)
 
     # Histogram Tab
+    selected_store = tk.StringVar(value="All Locations")
     hist_frame = ttk.Frame(notebook)
     notebook.add(hist_frame, text="Transaction Values Histogram")
+
+    # Dropdown menu for filtering
+    def update_histogram(*args):
+        filtered_values = transaction_values if selected_store.get() == "All Locations" else [
+            float(row[total_price_index]) for row in records[1:] if row[store_index] == selected_store.get()
+        ]
+
+        ax2.clear()
+        ax2.hist(filtered_values, bins=10, color='blue', edgecolor='black')
+        ax2.set_title(f"Histogram of Total Transaction Values ({selected_store.get()})")
+        ax2.set_xlabel("Transaction Value")
+        ax2.set_ylabel("Frequency")
+        canvas2.draw()
+
+    store_options = ["All Locations"] + list(revenue_by_location.keys())
+    tk.Label(hist_frame, text="Select Store Location:").pack()
+    store_menu = ttk.OptionMenu(hist_frame, selected_store, *store_options, command=update_histogram)
+    store_menu.pack(pady=10)
+
     fig2 = Figure(figsize=(5, 5))
     ax2 = fig2.add_subplot(111)
-    ax2.hist(transaction_values, bins=10, color='blue', edgecolor='black')
-    ax2.set_title("Histogram of Total Transaction Values")
-    ax2.set_xlabel("Transaction Value")
-    ax2.set_ylabel("Frequency")
+
 
     canvas2 = FigureCanvasTkAgg(fig2, master=hist_frame)
     canvas2.draw()
     canvas2.get_tk_widget().pack(fill='both', expand=True)
 
-
+# Initialize histogram with all data
+    update_histogram()
     root.mainloop()

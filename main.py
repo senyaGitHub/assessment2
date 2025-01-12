@@ -22,6 +22,7 @@ def run():
         elif option == 2:
 
             #here its a bit of a mess with nested if statments most of it is error checks
+
             process_option = tui.process_menu()
             if process_option == 1:
                 process.calculate_total_transactions(records)
@@ -95,8 +96,5 @@ def run():
 
 
 
-
-
-
-
-run()
+if __name__ == "__main__":
+    run()
