@@ -26,20 +26,20 @@ def run():
             #here its a bit of a mess with nested if statments most of it is error checks
             process_option = tui.process_menu()
             if process_option == 1:
-                tui.calculate_total_transactions(records)
+                process.calculate_total_transactions(records)
             if process_option == 2:
-                tui.get_unique_store_locations_and_categories(records)
+                process.get_unique_store_locations_and_categories(records)
             if process_option == 3:
                 transaction_id = input("Please input TransactionID: ")
                 if transaction_id == '':
                     tui.error("Empty string detected, please enter transaction_id. ")
-                if tui.get_transaction_details_by_id(records, transaction_id) == None:
+                if process.get_transaction_details_by_id(records, transaction_id) == None:
                     tui.error("Uknown error, possibly wrong input or exceded transaction id?")
                 else:
-                    print(tui.get_transaction_details_by_id(records, transaction_id))
+                    print(process.get_transaction_details_by_id(records, transaction_id))
             if process_option == 4:
                 location = input("Please input Location: ")
-                transactions = tui.get_transactions_by_store(records, location)
+                transactions = process.get_transactions_by_store(records, location)
                 if location == '':
                     tui.error("Empty string detected, please enter location. ")
                 if transactions:
@@ -48,6 +48,9 @@ def run():
                         print(transaction)
                 else:
                     print(f"No transactions found for store location: {location}")
+            if process_option == 5:
+                pass
+
 
 
 
