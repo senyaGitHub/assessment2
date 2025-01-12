@@ -28,7 +28,7 @@ def main_menu():
       [5] Exit
     Select option:
     '''))
-            if option in range(1,5):
+            if option in range(1,6):
                 return option
             else:
                 print("Choose an option between 1 and 4. ")

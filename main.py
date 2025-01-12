@@ -83,6 +83,14 @@ def run():
                                 print(f"{key}: {value:}")
         elif option == 3:
             gui.visualise_data(records)
+        elif option == 4:
+            location = input("Location of the store to save?: ")
+            if location == '':
+                tui.error("Empty string detected, please enter location. ")
+            process.dump_to_json(records, location)
+        elif option == 5:
+            print("Exiting!!!")
+            break
 
 
 

@@ -1,5 +1,5 @@
 import csv
-
+import json
 def load_data(path):
     with open(path, newline='') as csvfile:
         record = list(csv.reader(csvfile))
@@ -130,3 +130,12 @@ def summarize_sales_for_store(csv_data, store_location):
         "AverageCustomerSatisfaction": average_satisfaction,
         "PaymentMethodPercentages": payment_method_percentages,
     }
+
+
+def dump_to_json(csv_data, store_location, filename="sales_summary.json"):
+    summary_data = summarize_sales_for_store(csv_data, store_location)
+
+    with open(filename, "w") as json_file:
+        json.dump(summary_data, json_file, indent=4)
+
+    print(f"Sales summary for {store_location} was saved in the same directory.")
