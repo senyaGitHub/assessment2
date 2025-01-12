@@ -49,7 +49,16 @@ def run():
                 else:
                     print(f"No transactions found for store location: {location}")
             if process_option == 5:
-                pass
+                product_category = input("Please input product category: ")
+                transactions = process.get_transactions_by_product_category(records, product_category)
+                if product_category == '':
+                    tui.error("Empty string detected, please product category. ")
+                if transactions:
+                    print(f"Transactions for {product_category}:")
+                    for transaction in transactions:
+                        print(transaction)
+                else:
+                    print(f"No transactions found for product category: {product_category}")
 
 
 
