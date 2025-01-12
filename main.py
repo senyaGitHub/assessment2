@@ -61,7 +61,13 @@ def run():
                     print(f"No transactions found for product category: {product_category}")
 
             if process_option == 6:
-                pass
+
+                revenue_by_location = process.calculate_revenue_by_store_location(records)
+
+                print("Total revenue by store location:")
+                for location, revenue in revenue_by_location.items():
+                    print(f"{location}: £{revenue:.2f}")
+
 
 
 

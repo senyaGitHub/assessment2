@@ -61,3 +61,26 @@ def get_transactions_by_product_category(csv_data, product_category):
     ]
 
     return transactions
+
+
+def calculate_revenue_by_store_location(csv_data):
+
+    headers = csv_data[0]
+
+
+    store_index = headers.index("StoreLocation")
+    total_price_index = headers.index("TotalPrice")
+
+
+    revenue_by_location = {}
+
+    for row in csv_data[1:]:
+        store_location = row[store_index]
+        total_price = float(row[total_price_index])
+
+        if store_location in revenue_by_location:
+            revenue_by_location[store_location] += total_price
+        else:
+            revenue_by_location[store_location] = total_price
+
+    return revenue_by_location
